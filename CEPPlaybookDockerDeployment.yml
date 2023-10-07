@@ -1,0 +1,16 @@
+- hosts: awsserver
+  become: true
+  tasks:
+  - name: Install git and docker
+    yum: name={{item}} state=present
+    loop:
+     - git
+     - docker
+  - name: Clone the repo which has build war file and dockerfile
+    git: repo=https://github.com/Sonal0409/AnsibleDockerdemo.git dest=/tmp/mycode
+  - name: Start the docker service
+    service: name=docker state=started
+  - name: change the directory to /tmp/mycode and then  Build the dockerfile
+    command: chdir=/tmp/mycode docker build -t mycepimage01 .
+  - name: Runt he Image to deploy app on the container
+    command: docker run -d -P mycepimage01
