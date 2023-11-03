@@ -1,8 +1,6 @@
 - hosts: demo
   become: true
   tasks:
-  - name: update apt-get repo
-    command: sudo apt-get update
   - name: Install git, maven 
     package: name={{item}} state=present
     loop:
