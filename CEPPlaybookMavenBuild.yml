@@ -1,4 +1,4 @@
-- hosts: webserver
+- hosts: demo
   become: true
   tasks:
   - name: update apt-get repo
