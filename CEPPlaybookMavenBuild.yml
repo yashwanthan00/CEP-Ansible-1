@@ -9,4 +9,4 @@
   - name: Clone the code on the worker nodes from github
     git: repo=https://github.com/akshu20791/DevOpsClassCodes dest=/tmp/test
   - name: Execute maven command to build the code
-    command: chdir=/tmp/test mvn package
+    command: chdir=/tmp/test mvn verify
