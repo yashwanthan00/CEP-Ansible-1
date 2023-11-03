@@ -1,4 +1,4 @@
-- hosts: awsserver
+- hosts: demo
   become: true
   tasks:
   - name: Install git and docker
